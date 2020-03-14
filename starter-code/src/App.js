@@ -1,10 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CountryDetail from './components/CountryDetail';
+import countries from './countries.json';
 
 function App() {
+  const listaPaises = countries.map(e => e.name.common);
   return (
     <div className="App">
+      <CountryDetail />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
