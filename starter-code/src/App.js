@@ -12,11 +12,11 @@ const App = () => {
   const [country, setCountry] = useState(countries[1]);
 
   return (
-    <div className="App">
+    <div className="App" style={{ textAlign: "left" }}>
       <Nav />
       <div className="container">
         <div className="row">
-          <CountriesList />
+          <CountriesList country={country} setCountry={setCountry} />
           <CountryDetail country={country} setCountry={setCountry} />
         </div>
       </div>

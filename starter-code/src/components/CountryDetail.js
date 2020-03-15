@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import countries from "../countries.json";
 
+const findCountryByCode = (code) => (countries.map(country => (country.cca3 === code) ? country : undefined).filter(e => e)[0])
+
 const borderCountries = (code) => {
     const borders = [];
     code.forEach(c => {
-        borders.push(countries.map(country => (country.cca3 === c) ? (country.name.common) : undefined).filter(e => e))
+        borders.push(findCountryByCode(c).name.common);
     })
     return borders;
 }
@@ -33,8 +35,8 @@ const CountryDetail = ({ country, setCountry }) => {
                     <tr>
                         <td>Borders</td>
                         <td>
-                            <ul style={{ textAlign: "left" }}>
-                                {borders.map((e, i) => (<li key={i}><Link onClick={() => setCountry(countries[2])} > {e}</Link></li>))}
+                            <ul>
+                                {borders.map((e, i) => (<li key={i}><Link onClick={() => setCountry(findCountryByCode(country.borders[i]))} > {e}</Link></li>))}
                             </ul>
                         </td>
                     </tr>
