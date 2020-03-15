@@ -21,5 +21,5 @@ const CountriesList = ({ country, setCountry }) => {
         </div>
     </div >)
 };
-g
+
 export default CountriesList;
