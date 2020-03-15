@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import countries from "../countries.json";
 
 const borderCountries = (code) => {
@@ -9,9 +10,9 @@ const borderCountries = (code) => {
     return borders;
 }
 
-const CountryDetail = ({ country }) => {
+const CountryDetail = ({ country, setCountry }) => {
 
-    const borders = borderCountries(country.borders)
+    const borders = borderCountries(country.borders);
 
     return (
         <div className="col-7">
@@ -32,15 +33,14 @@ const CountryDetail = ({ country }) => {
                     <tr>
                         <td>Borders</td>
                         <td>
-                            <ul>
-                                {country.borders.map((e, i) => (<li key={i}><a href="/AND">{borders[i]}</a></li>))}
-                                <li><a href="/AND">Andorra</a></li>
+                            <ul style={{ textAlign: "left" }}>
+                                {borders.map((e, i) => (<li key={i}><Link onClick={() => setCountry(countries[2])} > {e}</Link></li>))}
                             </ul>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>)
+        </div >)
 };
 
 export default CountryDetail;
