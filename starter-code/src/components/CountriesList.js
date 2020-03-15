@@ -6,8 +6,6 @@ import ReactCountryFlag from "react-country-flag"
 
 const CountriesList = ({ country, setCountry }) => {
 
-    //<a className="list-group-item list-group-item-action active" href="/FRA">🇫🇷 France</a>
-
     return (<div className="col-5" style={{ maxHeight: "90vh", overflow: "scroll" }}>
         <div className="list-group">
             {
@@ -23,5 +21,5 @@ const CountriesList = ({ country, setCountry }) => {
         </div>
     </div >)
 };
-
+g
 export default CountriesList;
