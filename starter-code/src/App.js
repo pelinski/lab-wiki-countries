@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CountryDetail from './components/CountryDetail';
+import CountriesList from './components/CountriesList';
+import Nav from './components/Nav'
 import countries from './countries.json';
 
 
@@ -18,15 +20,22 @@ import countries from './countries.json';
 
 // a ver si así os ayuda a seguirlo, suerte!
 
-const App = (countries) => {
-  
-  const { ...countries } = useState();
+const App = () => {
 
-  //const listaPaises = countries.map(e => e.name.common);
+  //const { ...countries } = useState();
+
+  //const countriesList = countries.map(e => e.name.common);
+
   return (
     <div className="App">
-      <CountryDetail />
-    </div>
+      <Nav />
+      <div className="container">
+        <div className="row">
+          <CountriesList />
+          <CountryDetail country={countries[1]} />
+        </div>
+      </div>
+    </div >
   );
 }
 
