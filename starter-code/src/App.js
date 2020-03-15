@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CountryDetail from './components/CountryDetail';
+import CountriesList from './components/CountriesList';
+import Nav from './components/Nav'
+import countries from './countries.json';
 
-function App() {
+
+const App = () => {
+
+  const [country, setCountry] = useState(countries[1]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App" style={{ textAlign: "left" }}>
+      <Nav />
+      <div className="container">
+        <div className="row">
+          <CountriesList country={country} setCountry={setCountry} />
+          <CountryDetail country={country} setCountry={setCountry} />
+        </div>
+      </div>
+    </div >
   );
 }
 
